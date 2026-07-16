@@ -6,3 +6,4 @@ __pycache__/
 main_2.py
 main_3_extension.py
 main_memory.py
+conversation_memory.db
