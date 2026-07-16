@@ -1,0 +1,8 @@
+.env
+venv/
+__pycache__/
+*.pyc
+.cluely_tmp/
+main_2.py
+main_3_extension.py
+main_memory.py
