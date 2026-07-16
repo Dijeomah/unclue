@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Screen-share capture test</title>
+  <style>
+    body { font-family: -apple-system, sans-serif; background: #111; color: #eee; padding: 24px; }
+    button { font-size: 14px; padding: 8px 16px; cursor: pointer; }
+    video { margin-top: 16px; max-width: 100%; border: 1px solid #444; }
+    p { color: #aaa; max-width: 600px; }
+  </style>
+</head>
+<body>
+  <h2>getDisplayMedia capture test</h2>
+  <p>
+    This uses the exact same browser API Google Meet / Zoom-web / Teams-web use for
+    "Share screen". Click the button, pick your screen in the OS picker, then look at
+    the live preview below — if the Cluely overlay is excluded from screen capture
+    correctly, it will NOT appear in this preview even though it's actually on your screen.
+  </p>
+  <button id="start">Share Screen</button>
+  <video id="preview" autoplay playsinline></video>
+
+  <script>
+    document.getElementById('start').addEventListener('click', async () => {
+      try {
+        const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+        document.getElementById('preview').srcObject = stream;
+      } catch (err) {
+        alert('Capture failed or was cancelled: ' + err);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Cluely Local Overlay",
+  "version": "1.0",
+  "description": "Mirrors the Cluely local overlay as in-page content so it survives the browser's own fullscreen mode.",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
